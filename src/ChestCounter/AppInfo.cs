@@ -7,9 +7,22 @@ public static class AppInfo
 
     public static string VersionText => $"{Version.Major}.{Version.Minor}.{Math.Max(0, Version.Build)}";
 
-    public const string Repo = "LED-N/Fortnite-ChestCounter";
+    /// <summary>This fork: the exe updates come from its releases.</summary>
+    public const string Repo = "jedankomad/Fortnite-PirateTokenChestCounter";
     public static string RepoUrl => "https://github.com/" + Repo;
     public static string IssuesUrl => RepoUrl + "/issues";
+
+    /// <summary>The original project this fork is based on (author: LED-N).</summary>
+    public const string UpstreamRepo = "LED-N/Fortnite-ChestCounter";
+    public const string UpstreamAuthor = "LED-N";
+    public static string UpstreamUrl => "https://github.com/" + UpstreamRepo;
+    public const string ForkAuthor = "jedankomad";
+
+    /// <summary>
+    /// content.json and the treasure pictures: from the original project, kept up to date by its maintainers every
+    /// week (only data, checked by TreasureCatalog.Parse, never code).
+    /// </summary>
+    public const string ContentRepo = UpstreamRepo;
 
     /// <summary>Path of ChestCounter.exe when running as the published exe (null under "dotnet ChestCounter.dll").</summary>
     public static string? ExePath

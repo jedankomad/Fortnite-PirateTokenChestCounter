@@ -120,6 +120,13 @@ public static class GuiPage
         ["errorLog"] = L.T("Ouvrir le journal d'erreurs", "Open the error log", "Abrir el registro de errores"),
         ["issue"] = L.T("Signaler un problème (GitHub)", "Report a problem (GitHub)", "Informar de un problema (GitHub)"),
         ["project"] = L.T("Page du projet (GitHub)", "Project page (GitHub)", "Página del proyecto (GitHub)"),
+        ["fork"] = L.T("fork", "fork", "fork"),
+        ["forkTitle"] = L.T($"Fork de {AppInfo.UpstreamAuthor}/Fortnite-ChestCounter", $"Fork of {AppInfo.UpstreamAuthor}/Fortnite-ChestCounter", $"Fork de {AppInfo.UpstreamAuthor}/Fortnite-ChestCounter"),
+        ["forkNote"] = L.T(
+            $"Cette version est un fork maintenu par {AppInfo.ForkAuthor}. Le compteur original a été créé par {AppInfo.UpstreamAuthor} : tout le mérite de l'application lui revient. Les mises à jour de l'application viennent du fork ({AppInfo.Repo}), les données de la chasse au trésor et les images du projet original.",
+            $"This version is a fork maintained by {AppInfo.ForkAuthor}. The original counter was created by {AppInfo.UpstreamAuthor}, and all credit for the app goes to them. App updates come from the fork ({AppInfo.Repo}); treasure hunt data and pictures come from the original project.",
+            $"Esta versión es un fork mantenido por {AppInfo.ForkAuthor}. El contador original fue creado por {AppInfo.UpstreamAuthor}: todo el mérito de la aplicación es suyo. Las actualizaciones de la aplicación vienen del fork ({AppInfo.Repo}); los datos de la búsqueda del tesoro y las imágenes, del proyecto original."),
+        ["upstream"] = L.T($"Projet original de {AppInfo.UpstreamAuthor} (GitHub)", $"Original project by {AppInfo.UpstreamAuthor} (GitHub)", $"Proyecto original de {AppInfo.UpstreamAuthor} (GitHub)"),
         ["helpText"] = L.T("Le compteur lit les replays que Fortnite enregistre et compte tes coffres quelques secondes après chaque partie (Battle Royale de la saison seulement). Laisse-le ouvert pendant que tu joues : tu peux réduire la fenêtre, il continue de compter.",
             "The counter reads the replays Fortnite saves and counts your chests a few seconds after each match (the season's Battle Royale only). Keep it open while you play: you can minimize the window, it keeps counting.",
             "El contador lee las repeticiones que guarda Fortnite y cuenta tus cofres unos segundos después de cada partida (solo el Battle Royale de la temporada). Déjalo abierto mientras juegas: puedes minimizar la ventana, sigue contando."),
@@ -273,7 +280,7 @@ public static class GuiPage
         function setTab(t){tab=t;try{localStorage.setItem('cc-gui-tab',t)}catch(e){}render(true)}
         function render(force){
           const T=S.txt;document.documentElement.lang=S.lang;
-          const head=`<header><div class="brand"><svg width="44" height="44" viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="20" width="44" height="28" rx="4" fill="#7a4a1e" stroke="#e7b440" stroke-width="3"/><path d="M6 26 Q28 4 50 26" fill="#965d27" stroke="#e7b440" stroke-width="3"/><rect x="24" y="24" width="8" height="10" rx="2" fill="#e7b440"/></svg><div><h1 class="pirate">${esc(S.appName)}</h1><div class="who">${S.profiles.length>1?`<select aria-label="${esc(T.profile)}" title="${esc(T.profile)}" onchange="api('profile',this.value)">${S.profiles.map(p=>`<option value="${esc(p.key)}" ${p.key===S.profileKey?'selected':''}>${esc(p.name)} (${esc(p.matches)})</option>`).join('')}</select>`:`<span>${esc(S.player||'')}</span>`}<span>v${esc(S.version)}</span></div></div></div><span class="pill ${S.status.kind}"><i></i>${esc(S.status.text)}</span></header>
+          const head=`<header><div class="brand"><svg width="44" height="44" viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="20" width="44" height="28" rx="4" fill="#7a4a1e" stroke="#e7b440" stroke-width="3"/><path d="M6 26 Q28 4 50 26" fill="#965d27" stroke="#e7b440" stroke-width="3"/><rect x="24" y="24" width="8" height="10" rx="2" fill="#e7b440"/></svg><div><h1 class="pirate">${esc(S.appName)}</h1><div class="who">${S.profiles.length>1?`<select aria-label="${esc(T.profile)}" title="${esc(T.profile)}" onchange="api('profile',this.value)">${S.profiles.map(p=>`<option value="${esc(p.key)}" ${p.key===S.profileKey?'selected':''}>${esc(p.name)} (${esc(p.matches)})</option>`).join('')}</select>`:`<span>${esc(S.player||'')}</span>`}<span>v${esc(S.version)}</span><span title="${esc(T.forkTitle)}">${esc(T.fork)}</span></div></div></div><span class="pill ${S.status.kind}"><i></i>${esc(S.status.text)}</span></header>
           <nav>${['home','report','overlay','settings','help'].map(t=>`<button class="${t===tab?'on':''}" onclick="setTab('${t}')">${esc(T[t])}</button>`).join('')}</nav>`;
           if(!force&&busyHeader())return;
           if(!force&&busy()){$('#hdr').innerHTML=head;appHtml=null;return}
@@ -403,6 +410,7 @@ public static class GuiPage
         async function copyObs(){await api('copyObsPath');copied=true;render(true);setTimeout(()=>{copied=false;render(true)},2000)}
         function help(T){
           return `<div class="card"><p style="margin-top:0">${esc(T.helpText)}</p><div class="actions"><button class="b" onclick="api('openDataFolder')">${esc(T.dataFolder)}</button>${S.paths.errorLog?`<button class="b" onclick="api('openErrorLog')">${esc(T.errorLog)}</button>`:''}<button class="b" onclick="api('openIssues')">${esc(T.issue)}</button><button class="b" onclick="api('openRepo')">${esc(T.project)}</button></div></div>
+          <div class="card"><p style="margin-top:0">${esc(T.forkNote)}</p><div class="actions"><button class="b" onclick="api('openUpstream')">${esc(T.upstream)}</button></div></div>
           ${S.canUninstall?`<section><h2 class="pirate">${esc(T.uninstall)}</h2><div class="card"><span class="path">${esc(S.paths.data)}</span>
           <div class="actions"><button class="b danger" onclick="uninstall(false)">${esc(T.uninstall)} · ${esc(T.keepData)}</button><button class="b danger" onclick="uninstall(true)">${esc(T.uninstall)} · ${esc(T.deleteData)}</button></div></div></section>`:''}`;
         }

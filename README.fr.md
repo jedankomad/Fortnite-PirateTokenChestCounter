@@ -6,7 +6,9 @@
 
 # Compteur de coffres Fortnite
 
-[![version](https://img.shields.io/github/v/release/LED-N/Fortnite-ChestCounter?style=flat-square&label=version&color=e8b04b)](../../releases/latest) [![téléchargements](https://img.shields.io/github/downloads/LED-N/Fortnite-ChestCounter/total?style=flat-square&label=t%C3%A9l%C3%A9chargements&color=e8b04b)](../../releases) ![Windows 10 | 11](https://img.shields.io/badge/Windows-10%20%7C%2011-3a7bd5?style=flat-square) [![licence](https://img.shields.io/github/license/LED-N/Fortnite-ChestCounter?style=flat-square&label=licence&color=555)](LICENSE)
+[![version](https://img.shields.io/github/v/release/jedankomad/Fortnite-PirateTokenChestCounter?style=flat-square&label=version&color=e8b04b)](../../releases/latest) [![téléchargements](https://img.shields.io/github/downloads/jedankomad/Fortnite-PirateTokenChestCounter/total?style=flat-square&label=t%C3%A9l%C3%A9chargements&color=e8b04b)](../../releases) ![Windows 10 | 11](https://img.shields.io/badge/Windows-10%20%7C%2011-3a7bd5?style=flat-square) [![licence](https://img.shields.io/github/license/LED-N/Fortnite-ChestCounter?style=flat-square&label=licence&color=555)](LICENSE)
+
+> **Fork :** ceci est un fork maintenu par [jedankomad](https://github.com/jedankomad) du [Compteur de coffres Fortnite](https://github.com/LED-N/Fortnite-ChestCounter), créé par **[LED-N](https://github.com/LED-N)**. Tout le mérite de l'application revient à LED-N. Les versions de ce fork se mettent à jour depuis les releases de ce fork.
 
 **Compte chaque coffre que tu ouvres dans Fortnite, partie après partie, avec un overlay qui se fond dans le jeu.**
 

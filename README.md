@@ -6,7 +6,9 @@
 
 # Fortnite Chest Counter
 
-[![version](https://img.shields.io/github/v/release/LED-N/Fortnite-ChestCounter?style=flat-square&label=version&color=e8b04b)](../../releases/latest) [![downloads](https://img.shields.io/github/downloads/LED-N/Fortnite-ChestCounter/total?style=flat-square&label=downloads&color=e8b04b)](../../releases) ![Windows 10 | 11](https://img.shields.io/badge/Windows-10%20%7C%2011-3a7bd5?style=flat-square) [![license](https://img.shields.io/github/license/LED-N/Fortnite-ChestCounter?style=flat-square&label=license&color=555)](LICENSE)
+[![version](https://img.shields.io/github/v/release/jedankomad/Fortnite-PirateTokenChestCounter?style=flat-square&label=version&color=e8b04b)](../../releases/latest) [![downloads](https://img.shields.io/github/downloads/jedankomad/Fortnite-PirateTokenChestCounter/total?style=flat-square&label=downloads&color=e8b04b)](../../releases) ![Windows 10 | 11](https://img.shields.io/badge/Windows-10%20%7C%2011-3a7bd5?style=flat-square) [![license](https://img.shields.io/github/license/LED-N/Fortnite-ChestCounter?style=flat-square&label=license&color=555)](LICENSE)
+
+> **Fork notice:** this is a fork maintained by [jedankomad](https://github.com/jedankomad) of [Fortnite Chest Counter](https://github.com/LED-N/Fortnite-ChestCounter), created by **[LED-N](https://github.com/LED-N)**. All credit for the app goes to LED-N. Builds of this fork update from this fork's releases.
 
 **Counts every chest you open in Fortnite, match after match, with an overlay that blends into the game.**
 
